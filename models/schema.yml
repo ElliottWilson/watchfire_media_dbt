@@ -28,6 +28,7 @@ sources:
       - name: amzadvertising_sp_productads_v4
       - name: amzadvertising_sp_targets_v4
       - name: fbm_account_v10
+      - name: fbm_adset_v8
       - name: fbm_ad_v8
       - name: fbm_campaign_v8
       - name: ob_test_v1
