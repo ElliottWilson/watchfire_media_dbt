@@ -12,8 +12,8 @@ sources:
       - name: KENP_read_csv
       - name: orders_csv
       - name: paperback_royalty_csv
-      - name: regions
-      - name: title_mappings
+      - name: region
+      - name: portfolio
 
   - name: raw_openbridge
     database: nicholas-erik-pipeline
