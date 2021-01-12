@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: raw
+    database: nicholas-erik-pipeline
+    schema: agency_data_pipeline
+    tables:
+      - name: currencies
+      - name: data_feeds
+      - name: ebook_royalty_csv
+      - name: KDP_sales_dashboard_csv
+      - name: KENP_read_csv
+      - name: orders_csv
+      - name: paperback_royalty_csv
+      - name: region
+      - name: portfolio
+
+  - name: raw_openbridge
+    database: nicholas-erik-pipeline
+    schema: nicholas_erik_openbridge
+    tables:
+      - name: amzadvertising_profiles_v1
+      - name: amzadvertising_sp_adgroups_v4
+      - name: amzadvertising_sp_campaigns_placement_v1
+      - name: amzadvertising_sp_campaigns_v4
+      - name: amzadvertising_sp_keywords_query_v1
+      - name: amzadvertising_sp_keywords_v4
+      - name: amzadvertising_sp_productads_v4
+      - name: amzadvertising_sp_targets_v4
+      - name: fbm_account_v10
+      - name: fbm_ad_v8
+      - name: fbm_campaign_v8
+      - name: ob_test_v1
