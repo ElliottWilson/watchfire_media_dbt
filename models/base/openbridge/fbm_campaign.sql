@@ -1,4 +1,4 @@
 SELECT
     *
 FROM 
-{{ source('raw_openbridge', 'fbm_campaign_v8') }}
+{{ source('raw_openbridge', 'fbm_campaign_master') }}

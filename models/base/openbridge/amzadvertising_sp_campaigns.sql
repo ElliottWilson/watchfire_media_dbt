@@ -1,4 +1,4 @@
 SELECT
     *
 FROM 
-{{ source('raw_openbridge', 'amzadvertising_sp_campaigns_placement_v1') }}
+{{ source('raw_openbridge', 'amzadvertising_sp_campaigns_placement_master') }}
