@@ -39,7 +39,7 @@ SELECT
   book_union.marketplace,
   region.region,
   region.bookBub_region,
-  (book_union.ASIN_code || '.'|| region.region) AS ASIN_region
+  (book_union.ASIN_code ||'.'|| region.region) AS ASIN_region
 FROM
   book_union
 LEFT JOIN
