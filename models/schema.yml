@@ -19,15 +19,17 @@ sources:
     database: nicholas-erik-pipeline
     schema: nicholas_erik_openbridge
     tables:
-      - name: amzadvertising_profiles_v1
-      - name: amzadvertising_sp_adgroups_v4
-      - name: amzadvertising_sp_campaigns_placement_v1
-      - name: amzadvertising_sp_campaigns_v4
-      - name: amzadvertising_sp_keywords_query_v1
-      - name: amzadvertising_sp_keywords_v4
-      - name: amzadvertising_sp_productads_v4
-      - name: amzadvertising_sp_targets_v4
-      - name: fbm_account_v10
-      - name: fbm_ad_v8
-      - name: fbm_campaign_v8
-      - name: ob_test_v1
+      - name: amzadvertising_profiles_master
+      - name: amzadvertising_sp_adgroups_master
+      - name: amzadvertising_sp_campaigns_placement_master
+      - name: amzadvertising_sp_campaigns_master
+      - name: amzadvertising_sp_keywords_query_master
+      - name: amzadvertising_sp_keywords_master
+      - name: amzadvertising_sp_productads_master
+      - name: amzadvertising_sp_targets_master
+      - name: fbm_account_master
+      - name: fbm_adset_master
+      - name: fbm_ad_master
+      - name: fbm_campaign_master
+
+    
