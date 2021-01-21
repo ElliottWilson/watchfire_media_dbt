@@ -17,7 +17,7 @@ FROM
 LEFT JOIN
   {{ ref('region_to_currency_mapping') }} AS region_to_currency_mapping
 ON
-  region.region = region_to_currency_mapping.country_code
+  region.region = region_to_currency_mapping.clean_country_code
 WHERE
   marketplace != 'Marketplace'
 

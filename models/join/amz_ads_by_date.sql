@@ -8,9 +8,12 @@ clicks,
 cost, 
 currency, 
 impressions,
-ob_date
+ob_date, 
+(asin ||'.'|| region.region) AS ASIN_region
 FROM 
     {{ ref('amzadvertising_sp_product_ads') }} AS amz_ads
+    LEFT JOIN {{ ref('region') }} AS region
+    ON amz_ads.currency = region.currency_code
 WHERE asin IS NOT NULL),
 
 portfolio AS (
@@ -32,8 +35,11 @@ campaign_name,
 clicks,
 cost, 
 currency, 
-impressions
+impressions, 
+ad.ASIN_region
 FROM ad 
 LEFT JOIN portfolio
     ON ad.ASIN_ISBN = portfolio.ASIN_ISBN
+
+   
 ORDER BY ob_date, title
