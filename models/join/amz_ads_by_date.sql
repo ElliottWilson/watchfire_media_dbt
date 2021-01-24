@@ -16,30 +16,26 @@ FROM
     ON amz_ads.currency = region.currency_code
 WHERE asin IS NOT NULL),
 
-portfolio AS (
-SELECT DISTINCT
-title,
-author_name,
-ASIN_ISBN
+title_mappings AS (
+SELECT *
 FROM 
-    {{ ref('portfolio') }} AS portfolio)
+    {{ ref('title_mappings') }} AS title_mappings)
 
 SELECT 
 ob_date,
 ad_id,
 title,
-author_name,
+author,
 ad.ASIN_ISBN,
 campaign_id,
 campaign_name,
 clicks,
-cost, 
+cost,
 currency, 
-impressions, 
+impressions,
 ad.ASIN_region
 FROM ad 
-LEFT JOIN portfolio
-    ON ad.ASIN_ISBN = portfolio.ASIN_ISBN
+LEFT JOIN title_mappings
+    ON ad.ASIN_region = title_mappings.ASIN_region
 
-   
 ORDER BY ob_date, title
