@@ -17,6 +17,8 @@ sources:
       - name: region_to_currency_mapping
       - name: title_mappings
       - name: fb_ads_asin_mapping
+      - name: region_to_currency_mapping_2
+      - name: amzn_ebook_rates
 
   - name: raw_openbridge
     database: nicholas-erik-pipeline
