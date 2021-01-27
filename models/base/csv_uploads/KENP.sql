@@ -18,9 +18,7 @@ SELECT
   kindle_edition_normalized_pages,
   (kenp.month ||'.'|| region.clean_region) AS month_region,
   region.clean_region
-
-  FROM kenp 
-
+FROM kenp 
 JOIN {{ ref('region') }} AS region
 ON kenp.marketplace = region.marketplace
 

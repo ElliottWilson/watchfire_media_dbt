@@ -2,7 +2,6 @@ WITH region AS (
   SELECT 
     Marketplace AS marketplace,
     Region.Region AS region,
-    BookBub_Region AS bookBub_region, 
     CASE
     WHEN region.region = 'DE' THEN 'EU'
     WHEN region.region = 'ES' THEN 'EU'
@@ -23,12 +22,11 @@ FROM {{ source('raw','region') }})
 SELECT 
 region.marketplace,
 region.region,
-bookBub_region,
-region_to_currency_mapping_2.currency,
+region_to_currency_mapping.currency,
 region.clean_region
 FROM region
-LEFT JOIN {{ ref('region_to_currency_mapping_2') }} AS region_to_currency_mapping_2
-ON region.clean_region = region_to_currency_mapping_2.region
+LEFT JOIN {{ ref('region_to_currency_mapping') }} AS region_to_currency_mapping
+ON region.clean_region = region_to_currency_mapping.region
 WHERE marketplace != 'Marketplace'
 
 
