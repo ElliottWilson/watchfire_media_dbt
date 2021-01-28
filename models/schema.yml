@@ -8,11 +8,11 @@ sources:
       - name: currencies
       - name: data_feeds
       - name: ebook_royalty_csv
-      - name: KDP_sales_dashboard_csv
+      - name: combined_sales_csv
       - name: KENP_read_csv
       - name: orders_csv
       - name: paperback_royalty_csv
-      - name: region
+      - name: regions
       - name: portfolio
       - name: title_mappings
       - name: fb_ads_asin_mapping

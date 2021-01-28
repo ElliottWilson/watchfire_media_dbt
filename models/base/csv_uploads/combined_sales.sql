@@ -1,5 +1,6 @@
 SELECT
-  Royalty_Date AS royalty_date ,
+  Royalty_Date AS royalty_date,
+  EXTRACT(MONTH FROM Royalty_Date) AS month,
   Title AS title,
   Author_Name AS author_name,
   ASIN_ISBN AS ASIN_ISBN,
@@ -15,5 +16,5 @@ SELECT
   Royalty AS royalty,
   Currency AS currency
 FROM 
-    {{ source('raw', 'KDP_sales_dashboard_csv') }}
+    {{ source('raw', 'combined_sales_csv') }}
 WHERE Royalty_Date IS NOT NULL
