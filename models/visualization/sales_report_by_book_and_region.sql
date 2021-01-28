@@ -50,4 +50,5 @@ AND titles_and_region.date = all_ads_by_date.ob_date
 LEFT JOIN {{ ref('total_revenue_by_date') }} AS total_revenue_by_date
 ON titles_and_region.asin_region = total_revenue_by_date.asin_region
 AND titles_and_region.date = total_revenue_by_date.date
+ORDER BY date, asin_region
 
