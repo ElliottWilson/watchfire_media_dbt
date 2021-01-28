@@ -7,13 +7,15 @@ SELECT
   Marketplace AS marketplace,
   Royalty_Type AS royalty_type,
   Transaction_Type AS transaction_type,
-  Units_Sold AS units_sold,
-  Units_Refunded AS units_refunded,
-  Net_Units_Sold AS net_units_sold,
-  Avg__List_Price_without_tax AS avg_list_price_without_tax,
-  Avg__Offer_Price_without_tax AS avg_offer_price_without_tax,
-  Avg__Delivery_Manufacturing_cost AS avg_delivery_Manufacturing_cost,
-  Royalty AS royalty,
+  IFNULL(CAST(Units_Sold AS INT64),0) AS units_sold,
+  IFNULL(CAST(Units_Refunded AS INT64),0) AS units_refunded,
+  IFNULL(CAST(Net_Units_Sold AS INT64),0) AS net_units_sold,
+  IFNULL(CAST(Avg__List_Price_without_tax AS numeric),0) AS avg_list_price_without_tax,
+  IFNULL(CAST(Avg__Offer_Price_without_tax AS numeric),0) AS avg_offer_price_without_tax,
+  CASE WHEN Avg__Delivery_Manufacturing_cost = 'N/A' THEN 0
+       ELSE IFNULL(CAST(Avg__Delivery_Manufacturing_cost AS numeric),0)
+  END AS avg_delivery_Manufacturing_cost,
+  IFNULL(CAST(Royalty AS numeric),0) AS royalty,
   Currency AS currency
 FROM 
     {{ source('raw', 'combined_sales_csv') }}
