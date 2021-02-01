@@ -1,3 +1,5 @@
+{{ config(materialized='table')}}
+
 SELECT
 asin_isbn,
 date,
