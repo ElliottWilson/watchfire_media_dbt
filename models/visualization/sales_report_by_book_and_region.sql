@@ -1,3 +1,5 @@
+{{ config(materialized='table')}}
+
 WITH region_dates AS (
 SELECT ASIN_region, date FROM {{ ref('total_revenue_by_date') }} 
 UNION DISTINCT 
