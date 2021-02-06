@@ -5,19 +5,21 @@ sources:
     database: nicholas-erik-pipeline
     schema: agency_data_pipeline
     tables:
-      - name: currencies
+      - name: currencies_2
       - name: data_feeds
       - name: ebook_royalty_csv
-      - name: combined_sales_csv
+      - name: combined_sales
+      - name: KENP
       - name: KENP_read_csv
-      - name: orders_csv
+      - name: orders
       - name: paperback_royalty_csv
-      - name: regions
+      - name: regions_2
       - name: portfolio
-      - name: title_mappings
-      - name: fb_ads_asin_mapping
+      - name: title_mappings_2
+      - name: fb_ads_asin_mapping_2
       - name: region_to_currency_mapping
       - name: amzn_ebook_rates
+
 
   - name: raw_openbridge
     database: nicholas-erik-pipeline
