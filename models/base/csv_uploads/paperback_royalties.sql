@@ -16,4 +16,4 @@ SELECT
   Royalty AS royalty,
   Currency AS currency
 FROM 
-    {{ source('raw', 'paperback_royalty_csv') }}
+    {{ source('raw', 'paperback_royalties') }}

@@ -7,6 +7,6 @@ SELECT
   Paid_Units  AS paid_units,
   Free_Units AS free_units
 FROM
-    {{ source('raw', 'orders') }}
+    {{ source('raw', 'amazon_orders') }}
 
 WHERE Order_Date != 'Order_Date'
