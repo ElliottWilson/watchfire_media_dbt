@@ -6,7 +6,7 @@ asin AS ASIN_ISBN,
 campaign_id,
 campaign_name,
 clicks,
-cost, 
+IFNULL(CAST(cost AS numeric),0) AS cost, 
 amz_ads.currency, 
 impressions
 FROM 
