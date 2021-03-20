@@ -1,21 +1,5 @@
 {{ config(materialized='table')}}
 
-WITH region_dates AS (
-SELECT ASIN_region, date FROM {{ ref('total_revenue_by_date') }} 
-UNION DISTINCT 
-SELECT ASIN_region, ob_date FROM {{ ref('all_ads_by_date') }}
-),
-
-titles_and_region AS (
-SELECT DISTINCT
-title.ASIN_region AS asin_region,
-date
-FROM {{ ref('title_mappings') }} AS title
-LEFT JOIN
-region_dates
-ON region_dates.ASIN_region = title.asin_region)
-
-
 SELECT 
 titles_and_region.asin_region,
 title_mappings.asin_isbn,
@@ -43,7 +27,7 @@ IFNULL(all_ads_by_date.total_cost_amz,0) AS total_cost_amz,
 IFNULL(all_ads_by_date.total_cost_fb,0) AS total_cost_fb,
 IFNULL(all_ads_by_date.total_ad_spend,0) AS total_ad_spend,
 IFNULL(total_royalty_usd,0) - IFNULL(total_ad_spend,0) AS net_profit_usd
-FROM titles_and_region
+FROM {{ ref('unique_titles_and_region_by_date') }} AS titles_and_region
 INNER JOIN {{ ref('title_mappings') }} AS title_mappings
 ON titles_and_region.ASIN_region = title_mappings.asin_region
 LEFT JOIN {{ ref('all_ads_by_date') }} AS all_ads_by_date
