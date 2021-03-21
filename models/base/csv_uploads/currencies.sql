@@ -6,11 +6,11 @@ FROM {{ source('raw', 'currencies') }})
 
 
 SELECT 
-month_year, 
+replace(month_year,'.','-') AS month_year,
 currency, 
 currency_usd, 
 usd_currency, 
-month_year_currency
+replace(month_year_currency,'.','-') AS month_year_currency
 FROM 
 entry_time
 
